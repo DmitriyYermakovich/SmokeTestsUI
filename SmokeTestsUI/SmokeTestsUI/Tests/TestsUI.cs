@@ -36,22 +36,14 @@ namespace Tests
                 .CreateAccountBtn()
                 .NextBtn();
 
-            var AboutYouForm = new MainPage(Browser);
+            Assert.That(new MainPage(Browser).AboutYouFormYourGenderDisplayed(), Is.True, "Не отображается подсказка для поля выбора пола");
+            Assert.That(new MainPage(Browser).AboutYouFormYourGender(), Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
 
-            Assert.That(AboutYouForm.AboutYouFormYourGenderDisplayed(),
-                Is.True, "Не отображается подсказка для поля выбора пола");
-            Assert.That(AboutYouForm.AboutYouFormYourGender(),
-                Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
+            Assert.That(new MainPage(Browser).AboutYouFormGenderPreferenceDisplayed(), Is.True, "Не отображается подсказка для поля выбора предпочитаемого пола");
+            Assert.That(new MainPage(Browser).AboutYouFormGenderPreference(), Does.Contain("Select gender preference"), "Неправильная подсказка для поля выбора предпочитаемого пола");
 
-            Assert.That(AboutYouForm.AboutYouFormGenderPreferenceDisplayed(),
-    Is.True, "Не отображается подсказка для поля выбора предпочитаемого пола");
-            Assert.That(AboutYouForm.AboutYouFormGenderPreference(),
-                Does.Contain("Select gender preference"), "Неправильная подсказка для поля выбора предпочитаемого пола");
-
-            Assert.That(AboutYouForm.AboutYouFormYourDateOfBirthDisplayed(),
-Is.True, "Не отображается подсказка для полей указания дня рождения");
-            Assert.That(AboutYouForm.AboutYouFormYourDateOfBirth(),
-                Does.Contain("Select your date of birth"), "Неправильная подсказка для полей указания дня рождения");
+            Assert.That(new MainPage(Browser).AboutYouFormYourDateOfBirthDisplayed(), Is.True, "Не отображается подсказка для полей указания дня рождения");
+            Assert.That(new MainPage(Browser).AboutYouFormYourDateOfBirth(), Does.Contain("Select your date of birth"), "Неправильная подсказка для полей указания дня рождения");
         }
 
         [Test]
@@ -78,10 +70,7 @@ Is.True, "Не отображается подсказка для полей у�
                 .ApproveBitBtn()
                 .PhotosFormApproveBtn();
 
-            var TodayIAm = new MainPage(Browser);
-
-            Assert.That(TodayIAm.PopupControlUnknownDisplayed(),
-                Is.True, "Не отображается блок для выбора настроения");
+            Assert.That(new MainPage(Browser).PopupControlUnknownDisplayed(), Is.True, "Не отображается блок для выбора настроения");
         }
     }
 }
