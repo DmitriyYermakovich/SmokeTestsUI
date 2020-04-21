@@ -78,7 +78,7 @@ namespace Tests.Pages
 
         public MainPage SandwichInPopup()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(100))
+            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(200))
                 .Until(d => d.FindElement(SandwichInPopupLocator)).Click();
             return this;
         }

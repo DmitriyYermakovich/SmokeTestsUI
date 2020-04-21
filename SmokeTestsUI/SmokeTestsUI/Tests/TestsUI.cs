@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 
 namespace Tests
 {
+
     public class SmokeTests : BaseTest
     {
         [Test]
@@ -19,8 +20,8 @@ namespace Tests
             .SandwichInPopup()
             .MenuProfile();
 
-            Assert.That(Browser.Url,
-                Is.EqualTo("https://www.dating.com/people/#14043278542"), "Id авторизованного клиента неверный");
+            var UserId = "14043278542";
+            Assert.That(Browser.Url, Does.Contain(UserId), "Id авторизованного клиента неверный");
         }
 
         [Test]
