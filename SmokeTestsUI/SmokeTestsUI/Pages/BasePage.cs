@@ -12,6 +12,6 @@ namespace Tests.Pages
             this.Browser = Browser;
         }
 
-        protected TimeSpan TimeToWait = TimeSpan.FromSeconds(10);
+        protected TimeSpan TimeToWait = TimeSpan.FromSeconds(20);
     }
 }

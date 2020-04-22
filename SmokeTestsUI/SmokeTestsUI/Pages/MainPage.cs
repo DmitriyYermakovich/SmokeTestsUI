@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Tests.Pages
 {
@@ -78,14 +79,14 @@ namespace Tests.Pages
 
         public MainPage SandwichInPopup()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(200))
+            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(30))
                 .Until(d => d.FindElement(SandwichInPopupLocator)).Click();
             return this;
         }
 
         public MainPage MenuProfile()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(MenuProfileLocator)).Click();
             return this;
         }
@@ -108,7 +109,7 @@ namespace Tests.Pages
 
         public MainPage ReadEmailField()
         {
-            var reademail = "testemail25@sdventures.com";
+            var reademail = "testemail28@sdventures.com";
 
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ReadEmailFieldLocator)).SendKeys(reademail);
@@ -133,18 +134,18 @@ namespace Tests.Pages
 
         public MainPage IconMal()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(IconMalLocator)).Click();
             return this;
         }
 
-         public MainPage IconFem()
+        public MainPage IconFem()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(IconFemLocator)).Click();
             return this;
         }
-         public MainPage Month()
+        public MainPage Month()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(MonthLocator)).Click();
@@ -160,56 +161,56 @@ namespace Tests.Pages
 
         public MainPage Day()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(DayLocator)).Click();
             return this;
         }
 
         public MainPage DayChoice()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(DayChoiceLocator)).Click();
             return this;
         }
 
         public MainPage Year()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(YearLocator)).Click();
             return this;
         }
 
         public MainPage YearChoice()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(YearChoiceLocator)).Click();
             return this;
         }
 
         public MainPage NextBtn()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(NextBtnLocator)).Click();
             return this;
         }
 
         public MainPage ApproveBigBtn()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ApproveBigBtnLocator)).Click();
             return this;
         }
 
         public MainPage ApproveBigTwoBtn()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ApproveBigTwoBtnLocator)).Click();
             return this;
         }
 
         public MainPage ApproveBitBtn()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(20))
+            new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ApproveBitBtnLocator)).Click();
             return this;
         }
@@ -262,6 +263,7 @@ namespace Tests.Pages
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(AboutYouFormYourDateOfBirthLocator)).Displayed;
         }
-        #endregion
-    }
+    #endregion
+}
+
 }
