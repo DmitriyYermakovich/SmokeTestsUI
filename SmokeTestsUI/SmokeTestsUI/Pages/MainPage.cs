@@ -109,7 +109,7 @@ namespace Tests.Pages
 
         public MainPage ReadEmailField()
         {
-            var reademail = "testemail28@sdventures.com";
+            var reademail = "testemail31@sdventures.com";
 
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ReadEmailFieldLocator)).SendKeys(reademail);
