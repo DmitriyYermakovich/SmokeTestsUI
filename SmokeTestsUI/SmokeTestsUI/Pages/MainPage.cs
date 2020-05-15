@@ -109,8 +109,8 @@ namespace Tests.Pages
 
         public MainPage ReadEmailField()
         {
-            var reademail = "testemail31@sdventures.com";
-
+            //var reademail = "testemail31@sdventures.com";
+            var reademail = GenerateNewTestEmail();
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ReadEmailFieldLocator)).SendKeys(reademail);
             return this;
@@ -263,7 +263,58 @@ namespace Tests.Pages
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(AboutYouFormYourDateOfBirthLocator)).Displayed;
         }
-    #endregion
-}
+
+        //Метод регистрации нового пользователя на сайте
+        public MainPage RegistrationNewTestUser()
+        {
+            var registration = RegistrationNewTestUser();
+            return registration
+            //string nickname = "Test user";
+            //string reademail = GenerateNewTestEmail();
+            //string newpassword = "sdvtest123";
+
+            //RegistrationNewTestUser
+            //new MainPage(Browser)
+
+            //public class MainPage : BasePage
+
+            .ClickSignInWithEmailBtn()
+            .ClickCreateYourAccountBtn()
+            .NameOrNicknameField()
+            .ReadEmailField()
+            .NewPasswordField()
+            .CreateAccountBtn()
+            .Month()
+            .MonthChoice()
+            .Day()
+            .DayChoice()
+            .Year()
+            .YearChoice()
+            .IconMal()
+            .IconFem()
+            .NextBtn()
+            .ApproveBigBtn()
+            .ApproveBigTwoBtn()
+            .ApproveBitBtn()
+            .PhotosFormApproveBtn();
+        }
+        //Метод генерации уникального email при регистрации пользователя на сайте
+        public String GenerateNewTestEmail()
+        {
+            var emailSeed = RandomText();
+            return "newtestemail+" + emailSeed + "@sdventures.com";
+        }
+        // Метод генерации рандомной строки из букв и цифр
+        public String RandomText()
+        {
+            Random rnd = new Random();
+            String text = "";
+            Char[] pwdChars = new Char[36] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            for (int i = 0; i < 20; i++)
+                text += pwdChars[rnd.Next(0, 35)];
+            return text;
+        }
+        #endregion
+    }
 
 }
