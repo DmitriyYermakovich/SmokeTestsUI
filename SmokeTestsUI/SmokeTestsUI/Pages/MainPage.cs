@@ -15,34 +15,11 @@ namespace Tests.Pages
         By YourEmailFieldLocator = By.CssSelector(".authorization-form-wrapper [type='email']");
         By PasswordFieldLocator = By.CssSelector(".authorization-form-wrapper [type='password']");
         By SignInBtnLocator = By.CssSelector("[value='sign-in']");
-        By SandwichInPopupLocator = By.CssSelector(".icon.sandwich");
-        By MenuProfileLocator = By.CssSelector(".link [url='/texts/header/menu#profile']");
-        By CreateYourAccountLocator = By.CssSelector("div.react-footer");
         By NameOrNicknameFielddLocator = By.CssSelector("div.input-container [type='text']");
         By ReadEmailFieldLocator = By.CssSelector("div.input-container [type='email'].data.has-description");
         By NewPasswordFieldLocator = By.CssSelector(".input-container [validations='isNotEmpty,minLength:4']");
         By CreateAccountBtnLocator = By.CssSelector(".action.call-to-action.medium[value='sign-up']");
-        //Form "About You"
-        By IconMalLocator = By.CssSelector(".gender [class='icon mal']");
-        By IconFemLocator = By.CssSelector(".preferred-gender [class='icon fem']");
-        By MonthLocator = By.CssSelector(".customized-select [name='month']");
-        By MonthChoiceLocator = By.CssSelector(".customized-select [name='month'] [value='1']");
-        By DayLocator = By.CssSelector(".customized-select [name='day']");
-        By DayChoiceLocator = By.CssSelector(".customized-select [name = 'day'] [value = '10']");
-        By YearLocator = By.CssSelector(".customized-select [name='year']");
-        By YearChoiceLocator = By.CssSelector(".customized-select [name = 'year'] [value = '1950']");
-        By NextBtnLocator = By.CssSelector(".big.approve.button.normal");
-        //Кнопки Approve при регистрациии пользователя
-        By ApproveBigBtnLocator = By.CssSelector("form.few-words-form .complete-button-section button.approve");
-        By ApproveBigTwoBtnLocator = By.CssSelector(".form.preferences-form div.complete-button-section .big.approve.button");
-        By ApproveBitBtnLocator = By.CssSelector(".form.interests-form .complete-button-section .bit.approve.button");
-        By PhotosFormApproveBtnLocator = By.CssSelector(".form.photos-form .big.approve.button");
-
-        By PopupControlUnknownLocator = By.CssSelector(".button.popup-trigger .unknown.text");
-
-        By AboutYouFormYourGenderLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#gender-empty']");
-        By AboutYouFormGenderPreferenceLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#preferences-empty']");
-        By AboutYouFormYourDateOfBirthLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#birthday-empty']");
+        By CreateYourAccountLocator = By.CssSelector("div.react-footer");
         #endregion
 
         #region Methods
@@ -55,16 +32,13 @@ namespace Tests.Pages
 
         public MainPage YourEmailField(string email)
         {
-
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(YourEmailFieldLocator)).SendKeys(email);
             return this;
         }
 
-        public MainPage PasswordField()
+        public MainPage PasswordField(string password)
         {
-            var password = "654321";
-
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(PasswordFieldLocator)).SendKeys(password);
             return this;
@@ -74,20 +48,6 @@ namespace Tests.Pages
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(SignInBtnLocator)).Click();
-            return this;
-        }
-
-        public MainPage SandwichInPopup()
-        {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(30))
-                .Until(d => d.FindElement(SandwichInPopupLocator)).Click();
-            return this;
-        }
-
-        public MainPage MenuProfile()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(MenuProfileLocator)).Click();
             return this;
         }
 
@@ -109,14 +69,13 @@ namespace Tests.Pages
 
         public MainPage ReadEmailField()
         {
-            //var reademail = "testemail31@sdventures.com";
-            var reademail = GenerateNewTestEmail();
+            var reademail = new GenerateTestEmail(Browser).GenerateNewTestEmail();
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ReadEmailFieldLocator)).SendKeys(reademail);
             return this;
         }
 
-        public MainPage NewPasswordField()
+public MainPage NewPasswordField()
         {
             var newpassword = "654321";
 
@@ -125,194 +84,11 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage CreateAccountBtn()
+        public AboutYouFormPage CreateAccountBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(CreateAccountBtnLocator)).Click();
-            return this;
-        }
-
-        public MainPage IconMal()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(IconMalLocator)).Click();
-            return this;
-        }
-
-        public MainPage IconFem()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(IconFemLocator)).Click();
-            return this;
-        }
-        public MainPage Month()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(MonthLocator)).Click();
-            return this;
-        }
-
-        public MainPage MonthChoice()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(MonthChoiceLocator)).Click();
-            return this;
-        }
-
-        public MainPage Day()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(DayLocator)).Click();
-            return this;
-        }
-
-        public MainPage DayChoice()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(DayChoiceLocator)).Click();
-            return this;
-        }
-
-        public MainPage Year()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(YearLocator)).Click();
-            return this;
-        }
-
-        public MainPage YearChoice()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(YearChoiceLocator)).Click();
-            return this;
-        }
-
-        public MainPage NextBtn()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(NextBtnLocator)).Click();
-            return this;
-        }
-
-        public MainPage ApproveBigBtn()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(ApproveBigBtnLocator)).Click();
-            return this;
-        }
-
-        public MainPage ApproveBigTwoBtn()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(ApproveBigTwoBtnLocator)).Click();
-            return this;
-        }
-
-        public MainPage ApproveBitBtn()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(ApproveBitBtnLocator)).Click();
-            return this;
-        }
-
-        public MainPage PhotosFormApproveBtn()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(PhotosFormApproveBtnLocator)).Click();
-            return this;
-        }
-
-        public bool PopupControlUnknownDisplayed()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(PopupControlUnknownLocator)).Displayed;
-        }
-
-        public string AboutYouFormYourGender()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourGenderLocator)).Text;
-        }
-
-        public bool AboutYouFormYourGenderDisplayed()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourGenderLocator)).Displayed;
-        }
-
-        public string AboutYouFormGenderPreference()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormGenderPreferenceLocator)).Text;
-        }
-
-        public bool AboutYouFormGenderPreferenceDisplayed()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormGenderPreferenceLocator)).Displayed;
-        }
-
-        public string AboutYouFormYourDateOfBirth()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourDateOfBirthLocator)).Text;
-        }
-
-        public bool AboutYouFormYourDateOfBirthDisplayed()
-        {
-            return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourDateOfBirthLocator)).Displayed;
-        }
-
-        //Метод регистрации нового пользователя на сайте
-        public MainPage RegistrationNewTestUser()
-        {
-            var registration = RegistrationNewTestUser();
-            return registration
-            //string nickname = "Test user";
-            //string reademail = GenerateNewTestEmail();
-            //string newpassword = "sdvtest123";
-
-            //RegistrationNewTestUser
-            //new MainPage(Browser)
-
-            //public class MainPage : BasePage
-
-            .ClickSignInWithEmailBtn()
-            .ClickCreateYourAccountBtn()
-            .NameOrNicknameField()
-            .ReadEmailField()
-            .NewPasswordField()
-            .CreateAccountBtn()
-            .Month()
-            .MonthChoice()
-            .Day()
-            .DayChoice()
-            .Year()
-            .YearChoice()
-            .IconMal()
-            .IconFem()
-            .NextBtn()
-            .ApproveBigBtn()
-            .ApproveBigTwoBtn()
-            .ApproveBitBtn()
-            .PhotosFormApproveBtn();
-        }
-        //Метод генерации уникального email при регистрации пользователя на сайте
-        public String GenerateNewTestEmail()
-        {
-            var emailSeed = RandomText();
-            return "newtestemail+" + emailSeed + "@sdventures.com";
-        }
-        // Метод генерации рандомной строки из букв и цифр
-        public String RandomText()
-        {
-            Random rnd = new Random();
-            String text = "";
-            Char[] pwdChars = new Char[36] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-            for (int i = 0; i < 20; i++)
-                text += pwdChars[rnd.Next(0, 35)];
-            return text;
+            return new AboutYouFormPage(Browser);
         }
         #endregion
     }
