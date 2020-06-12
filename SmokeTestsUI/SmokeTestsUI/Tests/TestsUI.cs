@@ -16,13 +16,13 @@ namespace Tests
 
         new MainPage(Browser)
           .ClickSignInWithEmailBtn()
-          .YourEmailField(email)
-          .PasswordField(password)
-          .SignInBtn();
+          .InputYourEmailField(email)
+          .InputPasswordField(password)
+          .ClickSignInBtn();
 
         new PeoplePage(Browser)
-           .SandwichInPopup()
-           .MenuProfile();
+           .ClickSandwichInPopup()
+           .ClickMenuProfile();
 
              var UserId = "14043278542";
              Assert.That(Browser.Url, Does.Contain(UserId), "Id авторизованного клиента неверный");
@@ -34,11 +34,11 @@ namespace Tests
          new MainPage(Browser)
             .ClickSignInWithEmailBtn()
             .ClickCreateYourAccountBtn()
-            .NameOrNicknameField()
-            .ReadEmailField()
-            .NewPasswordField()
-            .CreateAccountBtn()
-            .NextBtn();
+            .InputNameOrNicknameField()
+            .InputReadEmailField()
+            .InputNewPasswordField()
+            .ClickCreateAccountBtn()
+            .ClickNextBtn();
 
              Assert.That(new AboutYouFormPage(Browser).AboutYouFormYourGenderDisplayed(), Is.True, "Не отображается подсказка для поля выбора пола");
              Assert.That(new AboutYouFormPage(Browser).AboutYouFormYourGender(), Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
@@ -57,6 +57,18 @@ namespace Tests
          .RegistrationNewTestUser();
 
     Assert.That(new PeoplePage(Browser).ClickPopupControlUnknownDisplayed(), Is.True, "Не отображается блок для выбора настроения");
+        }
+
+        [Test]
+        public void FirstPurchaseTest()
+        {
+            new RegistrationTestUser(Browser)
+            .RegistrationNewTestUser();
+
+            new FirstPurchaser(Browser)
+            .FirstPurchaserClient();
+
+            Assert.That(new PeoplePage(Browser).BtnRefillAccountDisplayed(), Is.True, "Отсутствует кнопка 'Refill account'");
         }
     }
 }

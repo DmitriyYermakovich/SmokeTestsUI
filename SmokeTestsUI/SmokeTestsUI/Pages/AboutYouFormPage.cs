@@ -26,20 +26,20 @@ namespace /*SmokeTestsUI.Pages*/ Tests.Pages
         #endregion
 
         #region Methods
-        public AboutYouFormPage IconMal()
+        public AboutYouFormPage ClickIconMal()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(IconMalLocator)).Click();
             return this;
         }
 
-        public AboutYouFormPage IconFem()
+        public AboutYouFormPage ClickIconFem()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(IconFemLocator)).Click();
             return this;
         }
-        public AboutYouFormPage Month()
+        public AboutYouFormPage OpenDropdownListMonth()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(MonthLocator)).Click();
@@ -53,7 +53,7 @@ namespace /*SmokeTestsUI.Pages*/ Tests.Pages
             return this;
         }
 
-        public AboutYouFormPage Day()
+        public AboutYouFormPage OpenDropdownListDay()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(DayLocator)).Click();
@@ -67,7 +67,7 @@ namespace /*SmokeTestsUI.Pages*/ Tests.Pages
             return this;
         }
 
-        public AboutYouFormPage Year()
+        public AboutYouFormPage OpenDropdownListYear()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(YearLocator)).Click();
@@ -81,7 +81,7 @@ namespace /*SmokeTestsUI.Pages*/ Tests.Pages
             return this;
         }
 
-        public FewWordsFormPage NextBtn()
+        public FewWordsFormPage ClickNextBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(NextBtnLocator)).Click();

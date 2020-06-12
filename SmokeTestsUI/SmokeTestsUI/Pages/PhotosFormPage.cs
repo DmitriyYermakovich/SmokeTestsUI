@@ -15,7 +15,7 @@ namespace Tests.Pages
         #endregion
 
         #region Methods
-        public PeoplePage PhotosFormApproveBtn()
+        public PeoplePage ClickPhotosFormApproveBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(PhotosFormApproveBtnLocator)).Click();

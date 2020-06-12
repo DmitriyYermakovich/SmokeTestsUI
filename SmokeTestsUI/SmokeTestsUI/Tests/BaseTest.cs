@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace Tests
 {
+
     [TestFixture]
     public class BaseTest
     {
@@ -12,9 +13,12 @@ namespace Tests
         [SetUp]
         public void DoBeforeAnyTest()
         {
+            var baseSiteUrl = "https://www.dating.030.npdev.lan";
+
             Browser = new ChromeDriver();
             Browser.Manage().Window.Maximize();
-            Browser.Navigate().GoToUrl("https://www.dating.com/");
+            //Browser.Navigate().GoToUrl("https://www.dating.com/");
+            Browser.Navigate().GoToUrl(baseSiteUrl);
         }
 
         [TearDown]

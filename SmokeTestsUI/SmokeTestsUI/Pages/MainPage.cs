@@ -30,21 +30,21 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage YourEmailField(string email)
+        public MainPage InputYourEmailField(string email)
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(YourEmailFieldLocator)).SendKeys(email);
             return this;
         }
 
-        public MainPage PasswordField(string password)
+        public MainPage InputPasswordField(string password)
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(PasswordFieldLocator)).SendKeys(password);
             return this;
         }
 
-        public MainPage SignInBtn()
+        public MainPage ClickSignInBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(SignInBtnLocator)).Click();
@@ -58,7 +58,7 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage NameOrNicknameField()
+        public MainPage InputNameOrNicknameField()
         {
             var nickname = "Test user";
 
@@ -67,7 +67,7 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage ReadEmailField()
+        public MainPage InputReadEmailField()
         {
             var reademail = new GenerateTestEmail(Browser).GenerateNewTestEmail();
             new WebDriverWait(Browser, TimeToWait)
@@ -75,7 +75,7 @@ namespace Tests.Pages
             return this;
         }
 
-public MainPage NewPasswordField()
+        public MainPage InputNewPasswordField()
         {
             var newpassword = "654321";
 
@@ -84,7 +84,7 @@ public MainPage NewPasswordField()
             return this;
         }
 
-        public AboutYouFormPage CreateAccountBtn()
+        public AboutYouFormPage ClickCreateAccountBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(CreateAccountBtnLocator)).Click();

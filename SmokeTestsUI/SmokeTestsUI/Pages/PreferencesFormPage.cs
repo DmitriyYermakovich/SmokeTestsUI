@@ -14,7 +14,7 @@ namespace Tests.Pages
         #endregion
 
         #region Methods
-        public InterestsFormPage ApproveBigTwoBtn()
+        public InterestsFormPage ClickApproveBigTwoBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(ApproveBigTwoBtnLocator)).Click();

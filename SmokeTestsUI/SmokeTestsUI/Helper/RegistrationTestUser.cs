@@ -18,23 +18,23 @@ namespace Tests.Pages
 
             .ClickSignInWithEmailBtn()
             .ClickCreateYourAccountBtn()
-            .NameOrNicknameField()
-            .ReadEmailField()
-            .NewPasswordField()
-            .CreateAccountBtn()
-            .Month()
+            .InputNameOrNicknameField()
+            .InputReadEmailField()
+            .InputNewPasswordField()
+            .ClickCreateAccountBtn()
+            .OpenDropdownListMonth()
             .MonthChoice()
-            .Day()
+            .OpenDropdownListDay()
             .DayChoice()
-            .Year()
+            .OpenDropdownListYear()
             .YearChoice()
-            .IconMal()
-            .IconFem()
-            .NextBtn()
-            .ApproveBigBtn()
-            .ApproveBigTwoBtn()
-            .ApproveBitBtn()
-            .PhotosFormApproveBtn();
+            .ClickIconMal()
+            .ClickIconFem()
+            .ClickNextBtn()
+            .ClickApproveBigBtn()
+            .ClickApproveBigTwoBtn()
+            .ClickApproveBitBtn()
+            .ClickPhotosFormApproveBtn();
         }
         #endregion
     }
