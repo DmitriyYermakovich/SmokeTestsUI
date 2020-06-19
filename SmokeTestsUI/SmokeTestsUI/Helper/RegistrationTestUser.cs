@@ -1,8 +1,7 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
+using Tests.Pages;
 
-namespace Tests.Pages
+namespace Helper
 {
     class RegistrationTestUser : BasePage
     {
@@ -18,18 +17,15 @@ namespace Tests.Pages
 
             .ClickSignInWithEmailBtn()
             .ClickCreateYourAccountBtn()
-            .InputNameOrNicknameField()
-            .InputReadEmailField()
-            .InputNewPasswordField()
+            .TypingNameOrNicknameField()
+            .TypingReadEmailField()
+            .TypingNewPasswordField()
             .ClickCreateAccountBtn()
-            .OpenDropdownListMonth()
-            .MonthChoice()
-            .OpenDropdownListDay()
-            .DayChoice()
-            .OpenDropdownListYear()
-            .YearChoice()
-            .ClickIconMal()
-            .ClickIconFem()
+            .SelectMonthOfBirth()
+            .SelectDayOfBirth()
+            .SelectYearOfBirth()
+            .SelectOwnGenderMal()
+            .SelectPrefferedGenderFemale()
             .ClickNextBtn()
             .ClickApproveBigBtn()
             .ClickApproveBigTwoBtn()

@@ -11,73 +11,50 @@ namespace /*SmokeTestsUI.Pages*/ Tests.Pages
 
         }
         #region Locators
-        By IconMalLocator = By.CssSelector(".gender [class='icon mal']");
-        By IconFemLocator = By.CssSelector(".preferred-gender [class='icon fem']");
-        By MonthLocator = By.CssSelector(".customized-select [name='month']");
-        By MonthChoiceLocator = By.CssSelector(".customized-select [name='month'] [value='1']");
-        By DayLocator = By.CssSelector(".customized-select [name='day']");
-        By DayChoiceLocator = By.CssSelector(".customized-select [name = 'day'] [value = '10']");
-        By YearLocator = By.CssSelector(".customized-select [name='year']");
-        By YearChoiceLocator = By.CssSelector(".customized-select [name = 'year'] [value = '1950']");
+        By OwnGenderMalLocator = By.CssSelector(".gender [class='icon mal']");
+        By PrefferedGenderFemaleLocator = By.CssSelector(".preferred-gender [class='icon fem']");
+        By MonthOfBirthLocator = By.CssSelector(".customized-select [name='month'] [value='1']");
+        By DayOfBirthLocator = By.CssSelector(".customized-select [name = 'day'] [value = '10']");
+        By YearOfBirthLocator = By.CssSelector(".customized-select [name = 'year'] [value = '1950']");
         By NextBtnLocator = By.CssSelector(".big.approve.button.normal");
-        By AboutYouFormYourGenderLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#gender-empty']");
-        By AboutYouFormGenderPreferenceLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#preferences-empty']");
-        By AboutYouFormYourDateOfBirthLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#birthday-empty']");
+        By InvalidTextYouGenderOnAboutYouFormLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#gender-empty']");
+        By InvalidTextGenderPreferenceOnAboutYouFormLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#preferences-empty']");
+        By InvalidTextDateOfBirthOnAboutYouFormLocator = By.CssSelector(".error-notification [url='/texts/forms/errors#birthday-empty']");
         #endregion
 
         #region Methods
-        public AboutYouFormPage ClickIconMal()
+        public AboutYouFormPage SelectOwnGenderMal()
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(IconMalLocator)).Click();
+                .Until(d => d.FindElement(OwnGenderMalLocator)).Click();
             return this;
         }
 
-        public AboutYouFormPage ClickIconFem()
+        public AboutYouFormPage SelectPrefferedGenderFemale()
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(IconFemLocator)).Click();
-            return this;
-        }
-        public AboutYouFormPage OpenDropdownListMonth()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(MonthLocator)).Click();
+                .Until(d => d.FindElement(PrefferedGenderFemaleLocator)).Click();
             return this;
         }
 
-        public AboutYouFormPage MonthChoice()
+        public AboutYouFormPage SelectMonthOfBirth()
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(MonthChoiceLocator)).Click();
+                .Until(d => d.FindElement(MonthOfBirthLocator)).Click();
             return this;
         }
 
-        public AboutYouFormPage OpenDropdownListDay()
+        public AboutYouFormPage SelectDayOfBirth()
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(DayLocator)).Click();
+                .Until(d => d.FindElement(DayOfBirthLocator)).Click();
             return this;
         }
 
-        public AboutYouFormPage DayChoice()
+        public AboutYouFormPage SelectYearOfBirth()
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(DayChoiceLocator)).Click();
-            return this;
-        }
-
-        public AboutYouFormPage OpenDropdownListYear()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(YearLocator)).Click();
-            return this;
-        }
-
-        public AboutYouFormPage YearChoice()
-        {
-            new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(YearChoiceLocator)).Click();
+                .Until(d => d.FindElement(YearOfBirthLocator)).Click();
             return this;
         }
 
@@ -88,41 +65,42 @@ namespace /*SmokeTestsUI.Pages*/ Tests.Pages
             return new FewWordsFormPage(Browser);
         }
 
-        public string AboutYouFormYourGender()
+        public string GetInvalidTextYouGenderOnAboutYouForm()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourGenderLocator)).Text;
+                .Until(d => d.FindElement(InvalidTextYouGenderOnAboutYouFormLocator)).Text;
         }
 
-        public bool AboutYouFormYourGenderDisplayed()
+        public bool GetInvalidTextYouGenderOnAboutYouFormDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourGenderLocator)).Displayed;
+                .Until(d => d.FindElement(InvalidTextYouGenderOnAboutYouFormLocator)).Displayed;
         }
 
-        public string AboutYouFormGenderPreference()
+        public string GetInvalidTextGenderPreferenceOnAboutYouForm()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormGenderPreferenceLocator)).Text;
+                .Until(d => d.FindElement(InvalidTextGenderPreferenceOnAboutYouFormLocator)).Text;
         }
 
-        public bool AboutYouFormGenderPreferenceDisplayed()
+        public bool GetInvalidTextGenderPreferenceOnAboutYouFormDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormGenderPreferenceLocator)).Displayed;
+                .Until(d => d.FindElement(InvalidTextGenderPreferenceOnAboutYouFormLocator)).Displayed;
         }
 
-        public string AboutYouFormYourDateOfBirth()
+        public string GetInvalidTextDateOfBirthOnAboutYouForm()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourDateOfBirthLocator)).Text;
+                .Until(d => d.FindElement(InvalidTextDateOfBirthOnAboutYouFormLocator)).Text;
         }
 
-        public bool AboutYouFormYourDateOfBirthDisplayed()
+        public bool GetInvalidTextDateOfBirthOnAboutYouFormDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(AboutYouFormYourDateOfBirthLocator)).Displayed;
+                .Until(d => d.FindElement(InvalidTextDateOfBirthOnAboutYouFormLocator)).Displayed;
         }
         #endregion
     }
 }
+ 

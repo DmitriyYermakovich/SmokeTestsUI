@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using Tests.Pages;
-using System;
-using OpenQA.Selenium;
+using Helper;
 
 namespace Tests
 {
@@ -16,8 +15,8 @@ namespace Tests
 
         new MainPage(Browser)
           .ClickSignInWithEmailBtn()
-          .InputYourEmailField(email)
-          .InputPasswordField(password)
+          .TypingYourEmailField(email)
+          .TypingPasswordField(password)
           .ClickSignInBtn();
 
         new PeoplePage(Browser)
@@ -34,20 +33,20 @@ namespace Tests
          new MainPage(Browser)
             .ClickSignInWithEmailBtn()
             .ClickCreateYourAccountBtn()
-            .InputNameOrNicknameField()
-            .InputReadEmailField()
-            .InputNewPasswordField()
+            .TypingNameOrNicknameField()
+            .TypingReadEmailField()
+            .TypingNewPasswordField()
             .ClickCreateAccountBtn()
             .ClickNextBtn();
 
-             Assert.That(new AboutYouFormPage(Browser).AboutYouFormYourGenderDisplayed(), Is.True, "Не отображается подсказка для поля выбора пола");
-             Assert.That(new AboutYouFormPage(Browser).AboutYouFormYourGender(), Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
+             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextYouGenderOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для поля выбора пола");
+             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextYouGenderOnAboutYouForm(), Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
 
-             Assert.That(new AboutYouFormPage(Browser).AboutYouFormGenderPreferenceDisplayed(), Is.True, "Не отображается подсказка для поля выбора предпочитаемого пола");
-             Assert.That(new AboutYouFormPage(Browser).AboutYouFormGenderPreference(), Does.Contain("Select gender preference"), "Неправильная подсказка для поля выбора предпочитаемого пола");
+             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextGenderPreferenceOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для поля выбора предпочитаемого пола");
+             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextGenderPreferenceOnAboutYouForm(), Does.Contain("Select gender preference"), "Неправильная подсказка для поля выбора предпочитаемого пола");
 
-             Assert.That(new AboutYouFormPage(Browser).AboutYouFormYourDateOfBirthDisplayed(), Is.True, "Не отображается подсказка для полей указания дня рождения");
-             Assert.That(new AboutYouFormPage(Browser).AboutYouFormYourDateOfBirth(), Does.Contain("Select your date of birth"), "Неправильная подсказка для полей указания дня рождения");
+             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextDateOfBirthOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для полей указания дня рождения");
+             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextDateOfBirthOnAboutYouForm(), Does.Contain("Select your date of birth"), "Неправильная подсказка для полей указания дня рождения");
          }
 
     [Test]
@@ -69,6 +68,14 @@ namespace Tests
             .FirstPurchaserClient();
 
             Assert.That(new PeoplePage(Browser).BtnRefillAccountDisplayed(), Is.True, "Отсутствует кнопка 'Refill account'");
+            Assert.That(new PeoplePage(Browser).GetNoticePurchasedCreditsDisplayed(), Is.True, "Не отобразилось уведомление о покупке 20 кредитов");
+            Assert.That(new PeoplePage(Browser).GetNoticePurchaseMembershipDisplayed(), Is.True, "Не отобразилось уведомление о покупке МШ");
+
+            new PeoplePage(Browser)
+            .ClickSandwichInPopup()
+            .ClickMenuProfile();
+
+            Assert.That(new PeoplePage(Browser).AccrualCreditsAfterPurchase(), Is.True, "Не начислены 20 кредитов");
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using OpenQA.Selenium;
 using System;
+using Tests.Pages;
 
-namespace Tests.Pages
+namespace Helper
 {
     class GenerateTestEmail : BasePage
     {

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using System;
+using Helper;
 
 namespace Tests.Pages
 {
@@ -30,14 +30,14 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage InputYourEmailField(string email)
+        public MainPage TypingYourEmailField(string email)
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(YourEmailFieldLocator)).SendKeys(email);
             return this;
         }
 
-        public MainPage InputPasswordField(string password)
+        public MainPage TypingPasswordField(string password)
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(PasswordFieldLocator)).SendKeys(password);
@@ -58,7 +58,7 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage InputNameOrNicknameField()
+        public MainPage TypingNameOrNicknameField()
         {
             var nickname = "Test user";
 
@@ -67,7 +67,7 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage InputReadEmailField()
+        public MainPage TypingReadEmailField()
         {
             var reademail = new GenerateTestEmail(Browser).GenerateNewTestEmail();
             new WebDriverWait(Browser, TimeToWait)
@@ -75,7 +75,7 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage InputNewPasswordField()
+        public MainPage TypingNewPasswordField()
         {
             var newpassword = "654321";
 

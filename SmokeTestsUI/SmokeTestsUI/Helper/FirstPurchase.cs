@@ -1,8 +1,7 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
+using Tests.Pages;
 
-namespace Tests.Pages
+namespace Helper
 {
     class FirstPurchaser : BasePage
     {
@@ -17,15 +16,12 @@ namespace Tests.Pages
             new PeoplePage(Browser)
             
             .ClickUpgadeAccountBtn()
-            .VisaCardNumber()
-            .CardMonthField()
-            .CardMonthChoice()
-            .CardYearField()
-            .CardYearChoice()
-            .CardCVV()
-            .CardHolder()
+            .TypingVisaCardNumber()
+            .SelectCardExpirationMonth()
+            .SelectCardExpirationYear()
+            .TypingCardCVV()
+            .TypingCardHolder()
             .ClickPurchaseCreditsBtn();
-
         }
         #endregion
     }
