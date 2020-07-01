@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using Tests.Pages;
 using Helper;
+using System;
 
 namespace Tests
 {
@@ -52,10 +53,25 @@ namespace Tests
     [Test]
      public void RegistrationUserTest()
      {
-         new RegistrationTestUser(Browser)
-         .RegistrationNewTestUser();
+           new MainPage(Browser)
+            .ClickSignInWithEmailBtn()
+            .ClickCreateYourAccountBtn()
+            .TypingNameOrNicknameField()
+            .TypingReadEmailField()
+            .TypingNewPasswordField()
+            .ClickCreateAccountBtn()
+            .SelectMonthOfBirth()
+            .SelectDayOfBirth()
+            .SelectYearOfBirth()
+            .SelectOwnGenderMal()
+            .SelectPrefferedGenderFemale()
+            .ClickNextBtn()
+            .ClickApproveBigBtn()
+            .ClickApproveBigTwoBtn()
+            .ClickApproveBitBtn()
+            .ClickPhotosFormApproveBtn();
 
-    Assert.That(new PeoplePage(Browser).ClickPopupControlUnknownDisplayed(), Is.True, "Не отображается блок для выбора настроения");
+            Assert.That(new PeoplePage(Browser).ClickPopupControlUnknownDisplayed(), Is.True, "Не отображается блок для выбора настроения");
         }
 
         [Test]
