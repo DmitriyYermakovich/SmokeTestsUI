@@ -4,15 +4,15 @@ using Tests.Pages;
 
 namespace Helper
 {
-    class GenerateRandomNumber : BasePage
+    class GenerateRandomInt : BasePage
     {
-        public GenerateRandomNumber(IWebDriver Browser) : base(Browser)
+        public GenerateRandomInt(IWebDriver Browser) : base(Browser)
         {
 
         }
         #region Methods
         // Метод генерации рандомной строки из цифр
-        public String GetRandomNumber(int stringLength)
+        public String GetRandomInt(int stringLength)
         {
             Random rnd = new Random();
             String number = "";

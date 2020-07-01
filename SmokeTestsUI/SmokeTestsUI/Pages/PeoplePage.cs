@@ -86,7 +86,7 @@ namespace Tests.Pages
 
         public PeoplePage TypingCardHolder()
         {
-            var cardholder = new GenerateRandomLetter(Browser).GetRandomLetter(20);
+            var cardholder = new GenerateRandomString(Browser).GetRandomString(20);
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(CardHolderFieldLocator)).SendKeys(cardholder);
             return this;
@@ -116,7 +116,7 @@ namespace Tests.Pages
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(NoticePurchasedCreditsLocator)).Displayed;
         }
-        public bool AccrualCreditsAfterPurchase()
+        public bool IsToCreditsAfterPurchase()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(AccrualCreditsAfterPurchaseLocator)).Displayed;
