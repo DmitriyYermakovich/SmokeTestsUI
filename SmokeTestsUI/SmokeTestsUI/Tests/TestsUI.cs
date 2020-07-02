@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Tests.Pages;
 using Helper;
-using System;
+using AnyPage;
 
 namespace Tests
 {
@@ -20,7 +20,7 @@ namespace Tests
           .TypingPasswordField(password)
           .ClickSignInBtn();
 
-        new PeoplePage(Browser)
+        new BluredPage(Browser)
            .ClickSandwichInPopup()
            .ClickMenuProfile();
 
@@ -71,27 +71,27 @@ namespace Tests
             .ClickApproveBitBtn()
             .ClickPhotosFormApproveBtn();
 
-            Assert.That(new PeoplePage(Browser).ClickPopupControlUnknownDisplayed(), Is.True, "Не отображается блок для выбора настроения");
+            Assert.That(new BluredPage(Browser).ClickPopupControlUnknownDisplayed(), Is.True, "Не отображается блок для выбора настроения");
         }
 
         [Test]
-        public void FirstPurchaseTest()
+        public void FirstPurchaseCreditsTest()
         {
             new RegistrationTestUser(Browser)
             .RegistrationNewTestUser();
 
-            new FirstPurchaser(Browser)
-            .FirstPurchaserClient();
+            new PurchaseCredits(Browser)
+            .PurchaseCreditsClient();
 
             Assert.That(new PeoplePage(Browser).BtnRefillAccountDisplayed(), Is.True, "Отсутствует кнопка 'Refill account'");
-            Assert.That(new PeoplePage(Browser).GetNoticePurchasedCreditsDisplayed(), Is.True, "Не отобразилось уведомление о покупке 20 кредитов");
-            Assert.That(new PeoplePage(Browser).GetNoticePurchaseMembershipDisplayed(), Is.True, "Не отобразилось уведомление о покупке МШ");
+            Assert.That(new BluredPage(Browser).GetNoticePurchasedCreditsDisplayed(), Is.True, "Не отобразилось уведомление о покупке 20 кредитов");
+            Assert.That(new BluredPage(Browser).GetNoticePurchaseMembershipDisplayed(), Is.True, "Не отобразилось уведомление о покупке МШ");
 
-            new PeoplePage(Browser)
+            new BluredPage(Browser)
             .ClickSandwichInPopup()
             .ClickMenuProfile();
 
-            Assert.That(new PeoplePage(Browser).AccrualCreditsAfterPurchase(), Is.True, "Не начислены 20 кредитов");
+            Assert.That(new PeoplePage(Browser).IsTo20CreditsAfterPurchase(), Is.True, "Не начислены 20 кредитов");
         }
     }
 }

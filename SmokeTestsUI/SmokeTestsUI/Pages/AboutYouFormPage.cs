@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace /*SmokeTestsUI.Pages*/ Tests.Pages
+namespace Tests.Pages
 {
     public class AboutYouFormPage : BasePage
     {

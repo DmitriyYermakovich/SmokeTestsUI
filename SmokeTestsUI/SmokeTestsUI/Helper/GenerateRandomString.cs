@@ -4,15 +4,15 @@ using Tests.Pages;
 
 namespace Helper
 {
-    class GenerateRandomLetter : BasePage
+    class GenerateRandomString : BasePage
     {
-        public GenerateRandomLetter(IWebDriver Browser) : base(Browser)
+        public GenerateRandomString(IWebDriver Browser) : base(Browser)
         {
 
         }
         #region Methods
         // Метод генерации рандомной строки из букв
-        public String GetRandomLetter(int stringLength)
+        public String GetRandomString(int stringLength)
         {
             Random rnd = new Random();
             String letter = "";
