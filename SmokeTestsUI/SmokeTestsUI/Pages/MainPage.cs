@@ -12,12 +12,12 @@ namespace Tests.Pages
         }
         #region Locators
         By SignInWithEmailBtnLocator = By.CssSelector(".action.default.medium.default.action");
-        By YourEmailFieldLocator = By.CssSelector(".authorization-form-wrapper [type='email']");
-        By PasswordFieldLocator = By.CssSelector(".authorization-form-wrapper [type='password']");
+        By TypingYourEmailFieldLocator = By.CssSelector(".authorization-form-wrapper [type='email']");
+        By TypingPasswordFieldLocator = By.CssSelector(".authorization-form-wrapper [type='password']");
         By SignInBtnLocator = By.CssSelector("[value='sign-in']");
-        By NameOrNicknameFielddLocator = By.CssSelector("div.input-container [type='text']");
-        By ReadEmailFieldLocator = By.CssSelector("div.input-container [type='email'].data.has-description");
-        By NewPasswordFieldLocator = By.CssSelector(".input-container [validations='isNotEmpty,minLength:4']");
+        By TypingNameOrNicknameFieldLocator = By.CssSelector("div.input-container [type='text']");
+        By TypingReadEmailFieldLocator = By.CssSelector("div.input-container [type='email'].data.has-description");
+        By TypingNewPasswordFieldLocator = By.CssSelector(".input-container [validations='isNotEmpty,minLength:4']");
         By CreateAccountBtnLocator = By.CssSelector(".action.call-to-action.medium[value='sign-up']");
         By CreateYourAccountLocator = By.CssSelector("div.react-footer");
         #endregion
@@ -33,14 +33,14 @@ namespace Tests.Pages
         public MainPage TypingYourEmailField(string email)
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(YourEmailFieldLocator)).SendKeys(email);
+                .Until(d => d.FindElement(TypingYourEmailFieldLocator)).SendKeys(email);
             return this;
         }
 
         public MainPage TypingPasswordField(string password)
         {
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(PasswordFieldLocator)).SendKeys(password);
+                .Until(d => d.FindElement(TypingPasswordFieldLocator)).SendKeys(password);
             return this;
         }
 
@@ -63,7 +63,7 @@ namespace Tests.Pages
             var nickname = "Test user";
 
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(NameOrNicknameFielddLocator)).SendKeys(nickname);
+                .Until(d => d.FindElement(TypingNameOrNicknameFieldLocator)).SendKeys(nickname);
             return this;
         }
 
@@ -71,7 +71,7 @@ namespace Tests.Pages
         {
             var reademail = new GenerateTestEmail(Browser).GenerateNewTestEmail();
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(ReadEmailFieldLocator)).SendKeys(reademail);
+                .Until(d => d.FindElement(TypingReadEmailFieldLocator)).SendKeys(reademail);
             return this;
         }
 
@@ -80,7 +80,7 @@ namespace Tests.Pages
             var newpassword = "654321";
 
             new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(NewPasswordFieldLocator)).SendKeys(newpassword);
+                .Until(d => d.FindElement(TypingNewPasswordFieldLocator)).SendKeys(newpassword);
             return this;
         }
 

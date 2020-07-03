@@ -65,37 +65,37 @@ namespace Tests.Pages
             return new FewWordsFormPage(Browser);
         }
 
-        public string GetInvalidTextYouGenderOnAboutYouForm()
+        public string IsInvalidTextYouGenderOnAboutYouForm()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(InvalidTextYouGenderOnAboutYouFormLocator)).Text;
         }
 
-        public bool GetInvalidTextYouGenderOnAboutYouFormDisplayed()
+        public bool IsInvalidTextYouGenderOnAboutYouFormDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(InvalidTextYouGenderOnAboutYouFormLocator)).Displayed;
         }
 
-        public string GetInvalidTextGenderPreferenceOnAboutYouForm()
+        public string IsInvalidTextGenderPreferenceOnAboutYouForm()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(InvalidTextGenderPreferenceOnAboutYouFormLocator)).Text;
         }
 
-        public bool GetInvalidTextGenderPreferenceOnAboutYouFormDisplayed()
+        public bool IsInvalidTextGenderPreferenceOnAboutYouFormDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(InvalidTextGenderPreferenceOnAboutYouFormLocator)).Displayed;
         }
 
-        public string GetInvalidTextDateOfBirthOnAboutYouForm()
+        public string IsInvalidTextDateOfBirthOnAboutYouForm()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(InvalidTextDateOfBirthOnAboutYouFormLocator)).Text;
         }
 
-        public bool GetInvalidTextDateOfBirthOnAboutYouFormDisplayed()
+        public bool IsInvalidTextDateOfBirthOnAboutYouFormDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(InvalidTextDateOfBirthOnAboutYouFormLocator)).Displayed;

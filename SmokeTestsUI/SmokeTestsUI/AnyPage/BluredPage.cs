@@ -47,13 +47,13 @@ namespace AnyPage
             return this;
         }
 
-        public bool GetNoticePurchaseMembershipDisplayed()
+        public bool IsNoticePurchaseMembershipDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(NoticePurchaseMembershipLocator)).Displayed;
         }
 
-        public bool GetNoticePurchasedCreditsDisplayed()
+        public bool IsNoticePurchasedCreditsDisplayed()
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(NoticePurchasedCreditsLocator)).Displayed;

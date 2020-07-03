@@ -15,7 +15,6 @@ namespace Helper
         public void PurchaseCreditsClient()
         {
             new BluredPage(Browser)
-
             .ClickUpgadeAccountBtn();
 
             new PurchaseForm(Browser)
