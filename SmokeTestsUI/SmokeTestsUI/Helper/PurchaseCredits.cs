@@ -18,6 +18,7 @@ namespace Helper
             .ClickUpgadeAccountBtn();
 
             new PurchaseForm(Browser)
+            .ChoiceCreditpack150()
             .TypingVisaCardNumber()
             .SelectCardExpirationMonth()
             .SelectCardExpirationYear()

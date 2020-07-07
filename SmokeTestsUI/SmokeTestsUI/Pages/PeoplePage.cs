@@ -12,7 +12,7 @@ namespace Tests.Pages
         }
         #region Locators
         By RefillAccountBtnLocator = By.CssSelector(".purchase.option [data-user-interaction-action-id='purchase.menu']");
-        By IsTo20CreditsAfterPurchaseLocator = By.CssSelector(".credits-container .button.shady.small.credits-refill.high .amount.credits-amount");
+        By IsTo150CreditsAfterPurchaseLocator = By.CssSelector(".credits-container .button.shady.small.credits-refill.high .amount.credits-amount");
         #endregion
 
         #region Methods
@@ -22,10 +22,10 @@ namespace Tests.Pages
                 .Until(d => d.FindElement(RefillAccountBtnLocator)).Displayed;
         }
 
-        public bool IsTo20CreditsAfterPurchase()
+        public bool IsTo150CreditsAfterPurchase()
         {
             return new WebDriverWait(Browser, TimeToWait)
-                .Until(d => d.FindElement(IsTo20CreditsAfterPurchaseLocator)).Displayed;
+                .Until(d => d.FindElement(IsTo150CreditsAfterPurchaseLocator)).Displayed;
         }
         #endregion
     }

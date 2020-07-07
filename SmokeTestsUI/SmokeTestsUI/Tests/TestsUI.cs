@@ -40,14 +40,14 @@ namespace Tests
             .ClickCreateAccountBtn()
             .ClickNextBtn();
 
-             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextYouGenderOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для поля выбора пола");
-             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextYouGenderOnAboutYouForm(), Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
+             Assert.That(new AboutYouFormPage(Browser).IsInvalidTextYouGenderOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для поля выбора пола");
+             Assert.That(new AboutYouFormPage(Browser).IsInvalidTextYouGenderOnAboutYouForm(), Does.Contain("Select your gender"), "Неправильная подсказка для поля выбора пола");
 
-             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextGenderPreferenceOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для поля выбора предпочитаемого пола");
-             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextGenderPreferenceOnAboutYouForm(), Does.Contain("Select gender preference"), "Неправильная подсказка для поля выбора предпочитаемого пола");
+             Assert.That(new AboutYouFormPage(Browser).IsInvalidTextGenderPreferenceOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для поля выбора предпочитаемого пола");
+             Assert.That(new AboutYouFormPage(Browser).IsInvalidTextGenderPreferenceOnAboutYouForm(), Does.Contain("Select gender preference"), "Неправильная подсказка для поля выбора предпочитаемого пола");
 
-             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextDateOfBirthOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для полей указания дня рождения");
-             Assert.That(new AboutYouFormPage(Browser).GetInvalidTextDateOfBirthOnAboutYouForm(), Does.Contain("Select your date of birth"), "Неправильная подсказка для полей указания дня рождения");
+             Assert.That(new AboutYouFormPage(Browser).IsInvalidTextDateOfBirthOnAboutYouFormDisplayed(), Is.True, "Не отображается подсказка для полей указания дня рождения");
+             Assert.That(new AboutYouFormPage(Browser).IsInvalidTextDateOfBirthOnAboutYouForm(), Does.Contain("Select your date of birth"), "Неправильная подсказка для полей указания дня рождения");
          }
 
     [Test]
@@ -84,14 +84,14 @@ namespace Tests
             .PurchaseCreditsClient();
 
             Assert.That(new PeoplePage(Browser).BtnRefillAccountDisplayed(), Is.True, "Отсутствует кнопка 'Refill account'");
-            Assert.That(new BluredPage(Browser).GetNoticePurchasedCreditsDisplayed(), Is.True, "Не отобразилось уведомление о покупке 20 кредитов");
-            Assert.That(new BluredPage(Browser).GetNoticePurchaseMembershipDisplayed(), Is.True, "Не отобразилось уведомление о покупке МШ");
+            Assert.That(new BluredPage(Browser).IsNoticePurchasedCreditsDisplayed(), Is.True, "Не отобразилось уведомление о покупке 150 кредитов");
+            Assert.That(new BluredPage(Browser).IsNoticePurchaseMembershipDisplayed(), Is.True, "Не отобразилось уведомление о покупке МШ");
 
             new BluredPage(Browser)
             .ClickSandwichInPopup()
             .ClickMenuProfile();
 
-            Assert.That(new PeoplePage(Browser).IsTo20CreditsAfterPurchase(), Is.True, "Не начислены 20 кредитов");
+            Assert.That(new PeoplePage(Browser).IsTo150CreditsAfterPurchase(), Is.True, "Не начислены 150 кредитов");
         }
     }
 }
