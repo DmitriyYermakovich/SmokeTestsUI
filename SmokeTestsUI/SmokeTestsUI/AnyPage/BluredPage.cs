@@ -22,7 +22,7 @@ namespace AnyPage
         #region Methods
         public BluredPage ClickSandwichInPopup()
         {
-            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(30))
+            new WebDriverWait(Browser, System.TimeSpan.FromSeconds(60))
                 .Until(d => d.FindElement(SandwichInPopupLocator)).Click();
             return this;
         }
@@ -57,6 +57,12 @@ namespace AnyPage
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(NoticePurchasedCreditsLocator)).Displayed;
+        }
+
+        public ProfilePage GoToUserProfilePage(string userId)
+        {
+            Browser.Navigate().GoToUrl(PeoplePageUrl + "/#" + userId);
+            return new ProfilePage(Browser);
         }
         #endregion
     }

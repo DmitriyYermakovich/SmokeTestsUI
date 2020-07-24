@@ -44,11 +44,11 @@ namespace Tests.Pages
             return this;
         }
 
-        public MainPage ClickSignInBtn()
+        public PeoplePage ClickSignInBtn()
         {
             new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(SignInBtnLocator)).Click();
-            return this;
+            return new PeoplePage(Browser);
         }
 
         public MainPage ClickCreateYourAccountBtn()

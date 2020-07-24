@@ -53,7 +53,7 @@ namespace Tests
     [Test]
      public void RegistrationUserTest()
      {
-           new MainPage(Browser)
+            new MainPage(Browser)
             .ClickSignInWithEmailBtn()
             .ClickCreateYourAccountBtn()
             .TypingNameOrNicknameField()
@@ -92,6 +92,45 @@ namespace Tests
             .ClickMenuProfile();
 
             Assert.That(new PeoplePage(Browser).IsTo150CreditsAfterPurchase(), Is.True, "Не начислены 150 кредитов");
+        }
+
+        [Test]
+        public void ChatBetweenTwoClientsTest()
+        {
+            //var email = "dcUMT_1594806517014_test@dating.com";
+            //var password = "sdvtest123";
+            //var usertestid = "90931860031";
+
+            //new MainPage(Browser)
+             // .ClickSignInWithEmailBtn()
+              //.TypingYourEmailField(email)
+              //.TypingPasswordField(password)
+              //.ClickSignInBtn();
+
+            //new BluredPage(Browser)
+           //    .GoToUserProfilePage(usertestid);
+           // new ProfilePage(Browser).ClickChatNowBtn();
+           // new ChatPage(Browser)
+            //.ClickPopupContainerStickers();
+
+            new RegistrationTestUser(Browser).RegistrationNewTestUser();
+            new PurchaseCredits(Browser).PurchaseCreditsClient();
+            new BluredPage(Browser).ClickSandwichInPopup();
+            
+            var usersId = new ProfilePage(Browser).GetUserId();
+
+            new RegistrationTestUser(BrowserTwo).RegistrationNewTestUser();
+            new PurchaseCredits(BrowserTwo).PurchaseCreditsClient();
+            new BluredPage(BrowserTwo)
+                .ClickSandwichInPopup()
+                .ClickMenuProfile()
+                .GoToUserProfilePage(usersId);
+            new ProfilePage(BrowserTwo).ClickChatNowBtn();
+            new ChatPage(BrowserTwo)
+            .ClickPopupContainerStickers()
+            .SendSticker();
+
+            Assert.That(new ChatPage(BrowserTwo).IsStickerInChatDisplayed(), Is.True, "Стикер не отправлен в чат с другим клиентом");
         }
     }
 }
