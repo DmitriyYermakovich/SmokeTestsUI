@@ -13,6 +13,8 @@ namespace Tests.Pages
         By ClickPopupContainerStickersLocator = By.CssSelector(".chat-wrapper.unapproved .stickers-container l10n");
         By SendStickerLocator = By.CssSelector(".stickers-tabs-body [src='//api1.dating.lan/dialogs/stickers/hobby-002.x180']");
         By IsStickerInChatLocator = By.CssSelector(".message.sticker-container.outgoing");
+        By ClickMyContactsLocator = By.CssSelector(".wrapper .chat-list-wrapper .row-wrapper.content .events.contacts");
+        By IsStickerInChaInterlocutortLocator = By.CssSelector(".message.sticker-container.incoming");
         #endregion
 
         #region Methods
@@ -34,6 +36,19 @@ namespace Tests.Pages
         {
             return new WebDriverWait(Browser, TimeToWait)
                 .Until(d => d.FindElement(IsStickerInChatLocator)).Displayed;
+        }
+
+        public ChatPage ClickMyContacts()
+        {
+            new WebDriverWait(Browser, TimeToWait)
+                .Until(d => d.FindElement(ClickMyContactsLocator)).Click();
+            return new ChatPage(Browser);
+        }
+
+        public bool IsStickerInChaInterlocutortDisplayed()
+        {
+            return new WebDriverWait(Browser, TimeToWait)
+                .Until(d => d.FindElement(IsStickerInChaInterlocutortLocator)).Displayed;
         }
         #endregion
     }

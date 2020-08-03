@@ -131,6 +131,9 @@ namespace Tests
             .SendSticker();
 
             Assert.That(new ChatPage(BrowserTwo).IsStickerInChatDisplayed(), Is.True, "Стикер не отправлен в чат с другим клиентом");
+
+            new ChatPage(Browser).ClickMyContacts();
+            Assert.That(new ChatPage(Browser).IsStickerInChaInterlocutortDisplayed(), Is.True, "Стикер не появился в чате от клиента");
         }
     }
 }
